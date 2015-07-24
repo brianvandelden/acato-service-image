@@ -6,32 +6,6 @@ angular.module('acato.service.image', [])
  */
     .factory('$acatoImage', function ($q, $window) {
 
-        function getImageData(url) {
-            var q = $q.defer();
-            var canvas, context, imageData;
-            var img = new Image();
-            img.onload = function() {
-                canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                context = canvas.getContext('2d');
-                context.drawImage(img, 0, 0);
-                try {
-                    imageData = canvas.toDataURL();
-                    q.resolve(imageData);
-                }
-                catch(e) {
-                    q.reject(e.message);
-                }
-            };
-            try {
-                img.src = url;
-            } catch(e) {
-                q.reject(e.message);
-            }
-            return q.promise;
-        }
-
         return {
             getPictures: function(options) {
 
@@ -52,6 +26,31 @@ angular.module('acato.service.image', [])
                     q.reject(error);
                 }, options);
 
+                return q.promise;
+            },
+            getImageData: function(url) {
+                var q = $q.defer();
+                var canvas, context, imageData;
+                var img = new Image();
+                img.onload = function() {
+                    canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    context = canvas.getContext('2d');
+                    context.drawImage(img, 0, 0);
+                    try {
+                        imageData = canvas.toDataURL();
+                        q.resolve(imageData);
+                    }
+                    catch(e) {
+                        q.reject(e.message);
+                    }
+                };
+                try {
+                    img.src = url;
+                } catch(e) {
+                    q.reject(e.message);
+                }
                 return q.promise;
             }
         }
