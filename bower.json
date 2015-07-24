@@ -1,0 +1,18 @@
+{
+  "name": "acato-service-image",
+  "version": "1.0.0",
+  "homepage": "https://github.com/brianvandelden/acato-service-image",
+  "authors": [
+    "Brian van Delden <brian@acato.nl>"
+  ],
+  "description": "Acato image package for Ionic projects",
+  "main": "acato-image.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT"
+}
