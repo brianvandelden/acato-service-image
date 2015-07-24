@@ -3,7 +3,7 @@
 Cordova Plugin For Multiple Image Selection - implemented for iOS and Android 4.0 and above.
 cordova plugin add https://github.com/wymsee/cordova-imagePicker.git
 
-#Option 1:
+## Option 1:
 ```
 var options = {
     maximumImagesCount: 1,
@@ -19,7 +19,7 @@ $acatoImage.getPictures(options).then(function(results) {
 });
 ```
 
-#Option 2:
+## Option 2:
 Send image data to server
 ```
 var options = {
